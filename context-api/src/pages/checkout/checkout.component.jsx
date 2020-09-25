@@ -13,8 +13,8 @@ import {
 import "./checkout.styles.scss";
 import { CartContext } from "../../providers/cart/cart.provider";
 
-const CheckoutPage = ({ total }) => {
-  const { cartItems } = useContext(CartContext);
+const CheckoutPage = () => {
+  const { cartItems, total } = useContext(CartContext);
   return (
     <div className="checkout-page">
       <div className="checkout-header">

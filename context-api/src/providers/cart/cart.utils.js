@@ -19,6 +19,7 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
     cartItem => cartItem.id === cartItemToRemove.id
   );
 
+
   if (existingCartItem.quantity === 1) {
     return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id);
   }
@@ -29,3 +30,24 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
       : cartItem
   );
 };
+
+
+export const filterItemFromCart = (cartItems, item) => {
+  return cartItems.filter(
+    cartItem => cartItem.id !== item.id
+  )
+}
+
+export const getCartItemCount = (cartItems) => cartItems.reduce(
+  (accumalatedQuantity, cartItem) =>
+    accumalatedQuantity + cartItem.quantity,
+  0
+)
+
+
+export const selectCartTotal = cartItems =>
+  cartItems.reduce(
+    (accumalatedQuantity, cartItem) =>
+      accumalatedQuantity + cartItem.quantity * cartItem.price,
+    0
+  )
